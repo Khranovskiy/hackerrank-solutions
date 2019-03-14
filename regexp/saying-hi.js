@@ -42,17 +42,6 @@ function processData(input) {
 
   console.log(result)
 }
-// const REGEX = /^hi\s[^d].*$/ig
-// function test(regex, str){
-// 	if (! regex.global) {
-//         throw new Error('Please set flag /g of regex');
-//     }
-//     const origLastIndex = regex.lastIndex;
-//     regex.lastIndex = 0;
-//     const result = regex.test(str);
-//     regex.lastIndex = origLastIndex; 
-//     return result;
-// }
 
 process.stdin.resume();
 process.stdin.setEncoding("ascii");
