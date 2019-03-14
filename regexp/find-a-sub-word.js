@@ -26,10 +26,3 @@ process.stdin.on("data", function (input) {
 process.stdin.on("end", function () {
    processData(_input);
 });
-// const input = `1
-// existing pessimist optimist this is
-// 1
-// is
-// `
-// processData(input);
-
