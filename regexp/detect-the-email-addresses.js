@@ -1,17 +1,17 @@
-/* 
+/*
 Practice > Regex > Applications > Detect the Email Addresses
 
-    You will be provided with a block of text, spanning not more than 
-    hundred lines. Your task is to find the unique e-mail addresses 
-    present in the text. You could use Regular Expressions to simplify 
-    your task. And remember that the "@" sign can be used for a variety 
+    You will be provided with a block of text, spanning not more than
+    hundred lines. Your task is to find the unique e-mail addresses
+    present in the text. You could use Regular Expressions to simplify
+    your task. And remember that the "@" sign can be used for a variety
     of purposes!
 
 https://www.hackerrank.com/challenges/detect-the-email-addresses/problem
 
 # Input Format
-    The first line contains an integer N (N<=100), which is the number of lines 
-    present in the text fragment which follows. 
+    The first line contains an integer N (N<=100), which is the number of lines
+    present in the text fragment which follows.
     From the second line, begins the text fragment (of N lines) in which you need
     to search for e-mail addresses.
 
@@ -44,34 +44,34 @@ You’ll have to embrace randomness and chaos. There’s some level of disciplin
 # Sample Output
     hackers@hackerrank.com;interviewstreet@hackerrank.com;product@hackerrank.com
 */
-const EMAIL_REGEX = /([\w.+]+@\S+\.\w+)/g 
-//const EMAIL_REGEX = /(\S+@\S+\.\w+)/g
+const EMAIL_REGEX = /([\w.+]+@\S+\.\w+)/g
+// const EMAIL_REGEX = /(\S+@\S+\.\w+)/g
 
-function processData(input) {
-  const lines = input.split('\n');
-  const numberOfSentence = parseInt(lines[0],10);
-  const firstSentenceIndex = 1;
-  const lastSentenceIndex = firstSentenceIndex + numberOfSentence - 1;
-  const sentences = lines.slice(firstSentenceIndex, lastSentenceIndex + 1);
+function processData (input) {
+  const lines = input.split('\n')
+  const numberOfSentence = parseInt(lines[0], 10)
+  const firstSentenceIndex = 1
+  const lastSentenceIndex = firstSentenceIndex + numberOfSentence - 1
+  const sentences = lines.slice(firstSentenceIndex, lastSentenceIndex + 1)
 
   const sentencesMultiLine = sentences.join('\n')
-  const emails =findGroups(EMAIL_REGEX, sentencesMultiLine) 
-  const result = removeDuplicates(emails.sort());
-  console.log(result.join(';'));
+  const emails = findGroups(EMAIL_REGEX, sentencesMultiLine)
+  const result = removeDuplicates(emails.sort())
+  console.log(result.join(';'))
 }
-function findGroups(re, str) {
-    re.lastIndex = 0;
-    var match;
-    var result = [];
-    while ((match = EMAIL_REGEX.exec(str)) != null) {
-        result.push(match[1]);
-    }
-    return result;
+function findGroups (re, str) {
+  re.lastIndex = 0
+  let match
+  let result = []
+  while ((match = EMAIL_REGEX.exec(str)) != null) {
+    result.push(match[1])
+  }
+  return result
 }
-function removeDuplicates(list){
+function removeDuplicates (list) {
   const result = []
-  list.reduce( (acc, cur) => { 
-    if(acc !== cur){
+  list.reduce((acc, cur) => {
+    if (acc !== cur) {
       result.push(cur)
     }
     return cur
@@ -79,13 +79,13 @@ function removeDuplicates(list){
   return result
 }
 
-process.stdin.resume();
-process.stdin.setEncoding("ascii");
-_input = "";
-process.stdin.on("data", function (input) {
-    _input += input;
-});
+process.stdin.resume()
+process.stdin.setEncoding('ascii')
+_input = ''
+process.stdin.on('data', input => {
+  _input += input
+})
 
-process.stdin.on("end", function () {
-   processData(_input);
-});
+process.stdin.on('end', () => {
+  processData(_input)
+})
