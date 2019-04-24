@@ -7,30 +7,31 @@ let inputString = ''
 let currentLine = 0
 
 process.stdin.on('data', inputStdin => {
-  inputString += inputStdin
+    inputString += inputStdin
 })
 
-process.stdin.on('end', _ => {
-  inputString = inputString.replace(/\s*$/, '')
-    .split('\n')
-    .map(str => str.replace(/\s*$/, ''))
+process.stdin.on('end', () => {
+    inputString = inputString
+        .replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''))
 
-  main()
+    main()
 })
 
-function readLine () {
-  return inputString[currentLine++]
+function readLine() {
+    return inputString[currentLine++]
 }
 
-function main () {
-  const n = parseInt(readLine(), 10)
+function main() {
+    const arr = readLine()
+        .split(' ')
+        .map(arrTemp => parseInt(arrTemp, 10))
+    let reversedArrayString = ''
+    arr.reduceRight((accumulator, currentValue, index) => {
+        const separator = index !== 0 ? ' ' : ''
+        reversedArrayString += `${currentValue}${separator}`
+    }, 0)
 
-  const arr = readLine().split(' ').map(arrTemp => parseInt(arrTemp, 10))
-  let reversedArrayString = ''
-  arr.reduceRight((accumulator, currentValue, index, array) => {
-    const separator = (index !== 0) ? ' ' : ''
-    reversedArrayString += `${ currentValue }${ separator }`
-  }, 0)
-
-  console.log(reversedArrayString)
+    console.log(reversedArrayString)
 }

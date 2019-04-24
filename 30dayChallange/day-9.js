@@ -9,37 +9,38 @@ let inputString = ''
 let currentLine = 0
 
 process.stdin.on('data', inputStdin => {
-  inputString += inputStdin
+    inputString += inputStdin
 })
 
-process.stdin.on('end', _ => {
-  inputString = inputString.replace(/\s*$/, '')
-    .split('\n')
-    .map(str => str.replace(/\s*$/, ''))
+process.stdin.on('end', () => {
+    inputString = inputString
+        .replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''))
 
-  main()
+    main()
 })
 
-function readLine () {
-  return inputString[currentLine++]
+function readLine() {
+    return inputString[currentLine++]
 }
 
 // Complete the factorial function below.
-function factorial (n) {
-  if (n <= 1) {
-    return 1
-  }
-  return n * factorial(n - 1)
+function factorial(n) {
+    if (n <= 1) {
+        return 1
+    }
+    return n * factorial(n - 1)
 }
 
-function main () {
-  const ws = fs.createWriteStream(process.env.OUTPUT_PATH)
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH)
 
-  const n = parseInt(readLine(), 10)
+    const n = parseInt(readLine(), 10)
 
-  let result = factorial(n)
+    let result = factorial(n)
 
-  ws.write(result + '\n')
+    ws.write(result + '\n')
 
-  ws.end()
+    ws.end()
 }

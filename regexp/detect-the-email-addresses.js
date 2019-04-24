@@ -47,45 +47,45 @@ You’ll have to embrace randomness and chaos. There’s some level of disciplin
 const EMAIL_REGEX = /([\w.+]+@\S+\.\w+)/g
 // const EMAIL_REGEX = /(\S+@\S+\.\w+)/g
 
-function processData (input) {
-  const lines = input.split('\n')
-  const numberOfSentence = parseInt(lines[0], 10)
-  const firstSentenceIndex = 1
-  const lastSentenceIndex = firstSentenceIndex + numberOfSentence - 1
-  const sentences = lines.slice(firstSentenceIndex, lastSentenceIndex + 1)
+function processData(input) {
+    const lines = input.split('\n')
+    const numberOfSentence = parseInt(lines[0], 10)
+    const firstSentenceIndex = 1
+    const lastSentenceIndex = firstSentenceIndex + numberOfSentence - 1
+    const sentences = lines.slice(firstSentenceIndex, lastSentenceIndex + 1)
 
-  const sentencesMultiLine = sentences.join('\n')
-  const emails = findGroups(EMAIL_REGEX, sentencesMultiLine)
-  const result = removeDuplicates(emails.sort())
-  console.log(result.join(';'))
+    const sentencesMultiLine = sentences.join('\n')
+    const emails = findGroups(EMAIL_REGEX, sentencesMultiLine)
+    const result = removeDuplicates(emails.sort())
+    console.log(result.join(';'))
 }
-function findGroups (re, str) {
-  re.lastIndex = 0
-  let match
-  let result = []
-  while ((match = EMAIL_REGEX.exec(str)) != null) {
-    result.push(match[1])
-  }
-  return result
-}
-function removeDuplicates (list) {
-  const result = []
-  list.reduce((acc, cur) => {
-    if (acc !== cur) {
-      result.push(cur)
+function findGroups(re, str) {
+    re.lastIndex = 0
+    let match
+    let result = []
+    while ((match = EMAIL_REGEX.exec(str)) != null) {
+        result.push(match[1])
     }
-    return cur
-  }, '')
-  return result
+    return result
+}
+function removeDuplicates(list) {
+    const result = []
+    list.reduce((acc, cur) => {
+        if (acc !== cur) {
+            result.push(cur)
+        }
+        return cur
+    }, '')
+    return result
 }
 
 process.stdin.resume()
 process.stdin.setEncoding('ascii')
 _input = ''
 process.stdin.on('data', input => {
-  _input += input
+    _input += input
 })
 
 process.stdin.on('end', () => {
-  processData(_input)
+    processData(_input)
 })

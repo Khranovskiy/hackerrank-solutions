@@ -6,33 +6,33 @@ https://www.hackerrank.com/challenges/detect-the-domain-name/problem
 # Sample input
 # Sample Output
 */
-function processData (input) {
-  const data = input.split('\n')
-  const n = parseInt(data[0])
-  const text = data.slice(1).join(' ')
-  console.log(
-    detectDomains(input)
-      .sort()
-      .join(';')
-  )
+function processData(input) {
+    const data = input.split('\n')
+    const n = parseInt(data[0])
+    const text = data.slice(1).join(' ')
+    console.log(
+        detectDomains(input)
+            .sort()
+            .join(';')
+    )
 }
 
-function detectDomains (input) {
-  const domainRegExp = /https?:\/\/(ww[w2]\.)?([-\w.]+\.[a-z]+)/gi
-  const domains = new Set()
-  input.replace(domainRegExp, (_, __, domain) => {
-    domains.add(domain)
-  })
-  return Array.from(domains)
+function detectDomains(input) {
+    const domainRegExp = /https?:\/\/(ww[w2]\.)?([-\w.]+\.[a-z]+)/gi
+    const domains = new Set()
+    input.replace(domainRegExp, (_, __, domain) => {
+        domains.add(domain)
+    })
+    return Array.from(domains)
 }
 
 process.stdin.resume()
 process.stdin.setEncoding('ascii')
 _input = ''
 process.stdin.on('data', input => {
-  _input += input
+    _input += input
 })
 
 process.stdin.on('end', () => {
-  processData(_input)
+    processData(_input)
 })

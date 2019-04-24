@@ -61,21 +61,21 @@ Invalid
 
 const re = /\([-+]?(?:(?:90(?:\.0+)?)|(?:[0-8]?[0-9](?:\.\d+)?))\,\s[-+]?(?:(?:180(?:\.0+)?)|(?:1[0-7]+[0-9]+(?:\.\d+)?)|(?:\d{2}(?:\.\d+)?)|\d(?:\.\d+)?)\)/
 
-function processData (input) {
-  const data = input.split('\n')
-  const n = parseInt(data[0])
-  const lines = data.slice(1)
-  const result = lines.map(l => (re.test(l) ? 'Valid' : 'Invalid'))
-  result.forEach(el => console.log(el))
+function processData(input) {
+    const data = input.split('\n')
+    const n = parseInt(data[0])
+    const lines = data.slice(1)
+    const result = lines.map(l => (re.test(l) ? 'Valid' : 'Invalid'))
+    result.forEach(el => console.log(el))
 }
 
 process.stdin.resume()
 process.stdin.setEncoding('ascii')
 _input = ''
 process.stdin.on('data', input => {
-  _input += input
+    _input += input
 })
 
 process.stdin.on('end', () => {
-  processData(_input)
+    processData(_input)
 })

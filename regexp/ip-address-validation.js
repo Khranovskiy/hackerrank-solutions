@@ -23,44 +23,44 @@ IPv6
 const ipv6Name = 'IPv6'
 const ipv4Name = 'IPv4'
 const none = 'Neither'
-function processData (input) {
-  const lines = input.split('\n')
-  const numberOfSentence = parseInt(lines[0], 10)
-  const firstSentenceIndex = 1
-  const lastSentenceIndex = firstSentenceIndex + numberOfSentence - 1
-  const addresses = lines.slice(firstSentenceIndex, lastSentenceIndex + 1)
-  const re = /(^(?!0+\.0+\.0+\.0+$)(?:(?:[01]?\d\d?|2[0-4]\d|25[0-5])(?:\.(?:[01]?\d\d?|2[0-4]\d|25[0-5])){3})$)|(^(?:(?:[0-9a-f]{1,4})(:[0-9a-f]{1,4}){7})$)/g
-  // /ipv4| ipv6/g :
-  // ipv4
-  //    (^(?!0+\.0+\.0+\.0+$)(?:(?:[01]?\d\d?|2[0-4]\d|25[0-5])(?:\.(?:[01]?\d\d?|2[0-4]\d|25[0-5])){3})$)
-  //    (^(?!0+\.0+\.0+\.0+$) - test for 0.0.0.0
-  //    (?:(?:[01]?\d\d?|2[0-4]\d|25[0-5])(?:\.(?:[01]?\d\d?|2[0-4]\d|25[0-5])){3})$
-  //               [01]?\d\d?|2[0-4]\d|25[0-5]
-  //                                \.(?:[01]?\d\d?|2[0-4]\d|25[0-5])){3}
-  // ipv6
-  //    (^(?:(?:[0-9a-f]{1,4})(:[0-9a-f]{1,4}){7})$)
-  for (let address of addresses) {
-    re.lastIndex = 0
-    const groups = re.exec(address)
-    let type
-    if (groups && groups[1]) {
-      type = ipv4Name
-    } else if (groups && groups[2]) {
-      type = ipv6Name
-    } else {
-      type = none
+function processData(input) {
+    const lines = input.split('\n')
+    const numberOfSentence = parseInt(lines[0], 10)
+    const firstSentenceIndex = 1
+    const lastSentenceIndex = firstSentenceIndex + numberOfSentence - 1
+    const addresses = lines.slice(firstSentenceIndex, lastSentenceIndex + 1)
+    const re = /(^(?!0+\.0+\.0+\.0+$)(?:(?:[01]?\d\d?|2[0-4]\d|25[0-5])(?:\.(?:[01]?\d\d?|2[0-4]\d|25[0-5])){3})$)|(^(?:(?:[0-9a-f]{1,4})(:[0-9a-f]{1,4}){7})$)/g
+    // /ipv4| ipv6/g :
+    // ipv4
+    //    (^(?!0+\.0+\.0+\.0+$)(?:(?:[01]?\d\d?|2[0-4]\d|25[0-5])(?:\.(?:[01]?\d\d?|2[0-4]\d|25[0-5])){3})$)
+    //    (^(?!0+\.0+\.0+\.0+$) - test for 0.0.0.0
+    //    (?:(?:[01]?\d\d?|2[0-4]\d|25[0-5])(?:\.(?:[01]?\d\d?|2[0-4]\d|25[0-5])){3})$
+    //               [01]?\d\d?|2[0-4]\d|25[0-5]
+    //                                \.(?:[01]?\d\d?|2[0-4]\d|25[0-5])){3}
+    // ipv6
+    //    (^(?:(?:[0-9a-f]{1,4})(:[0-9a-f]{1,4}){7})$)
+    for (let address of addresses) {
+        re.lastIndex = 0
+        const groups = re.exec(address)
+        let type
+        if (groups && groups[1]) {
+            type = ipv4Name
+        } else if (groups && groups[2]) {
+            type = ipv6Name
+        } else {
+            type = none
+        }
+        console.log(type)
     }
-    console.log(type)
-  }
 }
 
 process.stdin.resume()
 process.stdin.setEncoding('ascii')
 _input = ''
 process.stdin.on('data', input => {
-  _input += input
+    _input += input
 })
 
 process.stdin.on('end', () => {
-  processData(_input)
+    processData(_input)
 })

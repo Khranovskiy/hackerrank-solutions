@@ -34,22 +34,22 @@ Hi Alex how are you doing
 */
 const REGEX = /^hi\s[^d].*$/i
 
-function processData (input) {
-  const lines = input.split('\n')
-  const numberOfSentence = parseInt(lines[0], 10)
-  const sentences = lines.slice(1)
-  const result = sentences.filter(s => REGEX.test(s)).join('\n')
+function processData(input) {
+    const lines = input.split('\n')
+    const numberOfSentence = parseInt(lines[0], 10)
+    const sentences = lines.slice(1)
+    const result = sentences.filter(s => REGEX.test(s)).join('\n')
 
-  console.log(result)
+    console.log(result)
 }
 
 process.stdin.resume()
 process.stdin.setEncoding('ascii')
 _input = ''
 process.stdin.on('data', input => {
-  _input += input
+    _input += input
 })
 
 process.stdin.on('end', () => {
-  processData(_input)
+    processData(_input)
 })

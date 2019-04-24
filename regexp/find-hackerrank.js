@@ -48,28 +48,28 @@ i think hackerrank is a great place to hangout
     The third conversation has only one word, it starts and ends with hackerrank and hence 0.
     The fourth conversation satisfies none of the above properties and hence -1.
 */
-function calculateScore (line) {
-  const initial = 3
-  let result = initial
-  result -= /^hackerrank/i.test(line) ? 2 : 0
-  result -= /hackerrank$/i.test(line) ? 1 : 0
-  return result === initial ? -1 : result
+function calculateScore(line) {
+    const initial = 3
+    let result = initial
+    result -= /^hackerrank/i.test(line) ? 2 : 0
+    result -= /hackerrank$/i.test(line) ? 1 : 0
+    return result === initial ? -1 : result
 }
-function processData (input) {
-  input
-    .trim()
-    .split('\n')
-    .slice(1)
-    .forEach(el => console.log(calculateScore(el)))
+function processData(input) {
+    input
+        .trim()
+        .split('\n')
+        .slice(1)
+        .forEach(el => console.log(calculateScore(el)))
 }
 
 process.stdin.resume()
 process.stdin.setEncoding('ascii')
 _input = ''
 process.stdin.on('data', input => {
-  _input += input
+    _input += input
 })
 
 process.stdin.on('end', () => {
-  processData(_input)
+    processData(_input)
 })
