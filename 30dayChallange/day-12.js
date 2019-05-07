@@ -59,7 +59,8 @@ class Student extends Person {
         if (score < 70) return 'P'
         if (score < 80) return 'A'
         if (score < 90) return 'E'
-        if (score <= 100) return 'O'
+        // if (score <= 100)
+        return 'O'
     }
 }
 

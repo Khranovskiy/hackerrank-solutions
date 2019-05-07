@@ -10,7 +10,7 @@ process.stdin.on('data', inputStdin => {
     inputString += inputStdin
 })
 
-process.stdin.on('end', _ => {
+process.stdin.on('end', () => {
     inputString = inputString
         .replace(/\s*$/, '')
         .split('\n')
@@ -22,16 +22,15 @@ process.stdin.on('end', _ => {
 function readLine() {
     return inputString[currentLine++]
 }
+
 const vertDimensionArrayLength = 6
 const horizDimensionArrayLength = 6
 
-function * iterateHourglasses(array) {
-    for (let vertIndex = 1; vertIndex < vertDimensionArrayLength - 1; vertIndex++) {
-        for (
-            let horizIndex = 1;
-            horizIndex < horizDimensionArrayLength - 1;
-            horizIndex++
-        ) {
+function* iterateHourglasses(array) {
+    const vertLength = array.length
+    const horizLength = array[0].length
+    for (let vertIndex = 1; vertIndex < vertLength - 1; vertIndex++) {
+        for (let horizIndex = 1; horizIndex < horizLength - 1; horizIndex++) {
             yield { i: vertIndex, j: horizIndex }
         }
     }

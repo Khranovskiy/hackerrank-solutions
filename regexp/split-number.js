@@ -9,9 +9,7 @@ function processData(input) {
         .map(el => el.match(re))
         .map(
             groups =>
-                `CountryCode=${groups[1]},LocalAreaCode=${groups[2]},Number=${
-                    groups[3]
-                }`
+                `CountryCode=${groups[1]},LocalAreaCode=${groups[2]},Number=${groups[3]}`
         )
         .forEach(el => console.log(el))
 }

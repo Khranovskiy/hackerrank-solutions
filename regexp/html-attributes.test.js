@@ -1,5 +1,6 @@
-import { html_attributes } from './html-attributes'
 import streamBuffers from 'stream-buffers'
+
+import { html_attributes } from './html-attributes'
 
 it('test00', () => {
     let input = `2
@@ -16,7 +17,7 @@ p:`
     expect(result).toEqual(expected)
 })
 
-it('test08', ()=>{
+it('test08', () => {
     let input = `13
 <div class="portal" role="navigation" id='p-navigation'>
 <h3>Navigation</h3>
@@ -31,12 +32,12 @@ it('test08', ()=>{
 </ul>
 </div>
 </div>`
-let expected = `a:accesskey,href,title
+    let expected = `a:accesskey,href,title
 div:class,id,role
 h3:
 li:id
 ul:`
-let outputStream = new streamBuffers.WritableStreamBuffer()
+    let outputStream = new streamBuffers.WritableStreamBuffer()
     html_attributes(input, outputStream)
     outputStream.end()
     let result = outputStream.getContentsAsString('utf8')

@@ -22,18 +22,18 @@ function Solution() {
     const queue = []
     const stack = []
 
-    ;(this.pushCharacter = function (character) {
+    ;(this.pushCharacter = function(character) {
         queue.push(character)
     }),
-    (this.popCharacter = function (character) {
-        return queue.pop()
-    }),
-    (this.enqueueCharacter = function (character) {
-        stack.unshift(character)
-    }),
-    (this.dequeueCharacter = function (character) {
-        return stack.pop()
-    })
+        (this.popCharacter = function(character) {
+            return queue.pop()
+        }),
+        (this.enqueueCharacter = function(character) {
+            stack.unshift(character)
+        }),
+        (this.dequeueCharacter = function(character) {
+            return stack.pop()
+        })
 }
 
 function main() {
@@ -43,7 +43,7 @@ function main() {
     // create the Solution class object p
     let obj = new Solution()
     // push/enqueue all the characters of string s to stack
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
         obj.pushCharacter(s.charAt(i))
         obj.enqueueCharacter(s.charAt(i))
     }
@@ -54,8 +54,8 @@ function main() {
     dequeue the first character from queue
     compare both the characters */
 
-    for (var i = 0; i < len / 2; i++) {
-        if (obj.popCharacter() != obj.dequeueCharacter()) {
+    for (let i = 0; i < len / 2; i++) {
+        if (obj.popCharacter() !== obj.dequeueCharacter()) {
             isPalindrome = false
             break
         }

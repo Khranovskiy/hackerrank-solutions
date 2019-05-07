@@ -47,9 +47,12 @@ const computation2 = (input, cb) => {
     // Reference: http://es5.github.io/#x15.4.4.22
     /* eslint no-extend-native: ["error", { "exceptions": ["Array"] }] */
     if (typeof Array.prototype.reduceRight !== 'function') {
-        Array.prototype.reduceRight = function (callback, ...args) {
+        Array.prototype.reduceRight = function(callback, ...args) {
             if (this === null || typeof this === 'undefined') {
-                throw new TypeError('Array.prototype.reduce called on null or undefined')
+                throw new TypeError(
+                    'Array.prototype.reduce \
+                    called on null or undefined'
+                )
             }
             if (typeof callback !== 'function') {
                 throw new TypeError(callback + ' is not a function')
@@ -65,7 +68,10 @@ const computation2 = (input, cb) => {
                     k--
                 }
                 if (k < 0) {
-                    throw new TypeError('Reduce of empty array with no initial value')
+                    throw new TypeError(
+                        'Reduce of empty array with no \
+                        initial value'
+                    )
                 }
                 value = t[k--]
             }

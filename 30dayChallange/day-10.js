@@ -10,7 +10,7 @@ process.stdin.on('data', inputStdin => {
     inputString += inputStdin
 })
 
-process.stdin.on('end', _ => {
+process.stdin.on('end', () => {
     inputString = inputString
         .replace(/\s*$/, '')
         .split('\n')

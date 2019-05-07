@@ -7,7 +7,7 @@ function Node(data) {
 
 // Start of function BinarySearchTree
 function BinarySearchTree() {
-    this.insert = function (root, data) {
+    this.insert = function(root, data) {
         if (root === null) {
             this.root = new Node(data)
 
@@ -30,7 +30,7 @@ function BinarySearchTree() {
     }
 
     // Start of function levelOrder
-    this.levelOrder = function (root) {
+    this.levelOrder = function(root) {
         let queue = [root]
         let current = null
         while (queue[0]) {

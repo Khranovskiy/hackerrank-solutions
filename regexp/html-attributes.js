@@ -1,4 +1,4 @@
-//https://www.hackerrank.com/challenges/html-attributes/problem
+// https://www.hackerrank.com/challenges/html-attributes/problem
 
 function forMatchedGroup(string, regex, callback) {
     if (!regex.global) {

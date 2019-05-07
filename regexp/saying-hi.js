@@ -36,7 +36,6 @@ const REGEX = /^hi\s[^d].*$/i
 
 function processData(input) {
     const lines = input.split('\n')
-    const numberOfSentence = parseInt(lines[0], 10)
     const sentences = lines.slice(1)
     const result = sentences.filter(s => REGEX.test(s)).join('\n')
 

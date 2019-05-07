@@ -1,5 +1,6 @@
-import { ideIdentifyingComments } from './ide-identifying-comments'
 import streamBuffers from 'stream-buffers'
+
+import { ideIdentifyingComments } from './ide-identifying-comments'
 
 it('test03', () => {
     let input = `// my  program in C++
@@ -27,7 +28,7 @@ a new programming language **/
     expect(result).toEqual(expected)
 })
 
-it('test01', ()=>{
+it('test01', () => {
     let input = `/*This is a program to calculate area of a circle after getting the radius as input from the user*/
 #include<stdio.h>
 int main()
@@ -58,7 +59,7 @@ The area of the circle is 7857.1429*/`
     expect(result).toEqual(expected)
 })
 
-it('test04', ()=>{
+it('test04', () => {
     let input = `#include<stdio.h>
 #include<stdlib.h>
 typedef struct Node

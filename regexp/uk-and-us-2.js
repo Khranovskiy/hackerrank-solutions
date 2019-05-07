@@ -20,10 +20,7 @@ function processData(input) {
     queries
         .map(
             query =>
-                new RegExp(
-                    '^' + query.replace(/our/, 'or') + '$|^' + query + '$',
-                    'g'
-                )
+                new RegExp('^' + query.replace(/our/, 'or') + '$|^' + query + '$', 'g')
         )
         .map(re => {
             return words.reduce(
@@ -60,10 +57,7 @@ function processDataAlternative(input) {
         })
         .map(regExpPair => {
             return regExpPair
-                .map(
-                    re =>
-                        words.map(val => re.test(val)).filter(val => val).length
-                )
+                .map(re => words.map(val => re.test(val)).filter(val => val).length)
                 .reduce((res, val) => res + val, 0)
         })
         .forEach(el => console.log(el))

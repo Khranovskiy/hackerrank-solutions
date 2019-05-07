@@ -40,7 +40,7 @@ const containsData = (f = (data, node) => {
     return f(data, node.next)
 })
 
-this.removeDuplicates = function (head) {
+this.removeDuplicates = function(head) {
     let current = head
     while (current !== null) {
         current.next = getNodeWithUniqueData(current.data, current.next)
@@ -49,7 +49,7 @@ this.removeDuplicates = function (head) {
     return head
 }
 
-this.insert = function (head, data) {
+this.insert = function(head, data) {
     let p = new Node(data)
     if (head == null) {
         head = p
@@ -65,7 +65,7 @@ this.insert = function (head, data) {
     return head
 }
 
-this.display = function (head) {
+this.display = function(head) {
     let start = head
     while (start) {
         process.stdout.write(start.data + ' ')

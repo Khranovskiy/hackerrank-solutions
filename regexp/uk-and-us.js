@@ -14,12 +14,9 @@ function processData(input) {
     testCases
         .map(c => c.slice(0, -2))
         .map(c => escapeRegexp(c))
-        .map(r => new RegExp(`(${ r })[sz]e`, 'ig'))
+        .map(r => new RegExp(`(${r})[sz]e`, 'ig'))
         .map(re => {
-            return textLines.reduce(
-                (acc, curr) => acc + countOccurrences(re, curr),
-                0
-            )
+            return textLines.reduce((acc, curr) => acc + countOccurrences(re, curr), 0)
         })
         .forEach(number => console.log(number))
 }

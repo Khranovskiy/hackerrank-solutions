@@ -43,7 +43,7 @@ function processData(input) {
 
     for (let subWord of queries) {
         const word = escapeRegexp(subWord)
-        const re = new RegExp(`(?<![\\w])(${subWord})(?!\\w)`, 'gi')
+        const re = new RegExp(`(?<![\\w])(${word})(?!\\w)`, 'gi')
         const result = countOccurrences(re, sentencesMultiLine)
         console.log(result)
     }
