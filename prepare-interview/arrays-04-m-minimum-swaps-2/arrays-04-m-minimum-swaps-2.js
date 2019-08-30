@@ -3,6 +3,8 @@
 
 const fs = require('fs')
 
+const minimumSwaps = require('./minimum-swaps-2')
+
 process.stdin.resume()
 process.stdin.setEncoding('utf-8')
 
@@ -26,9 +28,6 @@ function readLine() {
     return inputString[currentLine++]
 }
 
-// Complete the minimumSwaps function below.
-function minimumSwaps(arr) {}
-
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH)
 
@@ -39,8 +38,6 @@ function main() {
         .map(arrTemp => parseInt(arrTemp, 10))
 
     const res = minimumSwaps(arr)
-
     ws.write(res + '\n')
-
     ws.end()
 }
