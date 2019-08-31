@@ -1,4 +1,4 @@
-import minimumSwaps from './minimum-swaps-2'
+import { minimumSwaps } from './minimum-swaps-2'
 
 it('minimumSwaps 1', () => {
     expect(minimumSwaps([4, 3, 1, 2])).toBe(3)

@@ -1,5 +1,5 @@
-// Complete the minimumSwaps function below.
-function minimumSwaps(arr) {
-    return 42
+import { minSwaps } from './minSwaps'
+
+export function minimumSwaps(inputArray) {
+    return minSwaps(inputArray, inputArray.length)
 }
-module.exports = minimumSwaps
